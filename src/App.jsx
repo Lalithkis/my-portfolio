@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
+import Playground from './components/Playground';
 import Skills from './components/Skills';
 import Certifications from './components/Certifications';
 import Achievements from './components/Achievements';
@@ -28,6 +29,7 @@ function App() {
           <About />
           <Experience />
           <Projects />
+          <Playground />
           <Skills />
           <Certifications />
           <Achievements />

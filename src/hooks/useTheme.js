@@ -1,16 +1,19 @@
 import { useState, useEffect } from 'react';
 
 export const useTheme = () => {
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState('dark');
 
     useEffect(() => {
-        // Check local storage or system preference
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            setTheme('dark');
-            document.documentElement.classList.add('dark');
-        } else {
+        const savedTheme = localStorage.theme;
+        if (savedTheme === 'light') {
             setTheme('light');
             document.documentElement.classList.remove('dark');
+        } else {
+            setTheme('dark');
+            document.documentElement.classList.add('dark');
+            if (!savedTheme) {
+                localStorage.theme = 'dark';
+            }
         }
     }, []);
 

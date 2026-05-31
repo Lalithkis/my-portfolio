@@ -5,6 +5,7 @@ export const NAV_LINKS = [
     { id: 'about', label: 'About' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
+    { id: 'playground', label: 'ML Sandbox' },
     { id: 'skills', label: 'Skills' },
     { id: 'certifications', label: 'Certifications' },
     { id: 'achievements', label: 'Achievements' },
@@ -75,6 +76,46 @@ export const PROJECTS_DATA = [
         impact: "Reduced manual monitoring time by 80%",
         links: { github: "https://github.com/Lalithkis/n8n-that-automates-company-security" },
         image: "/assets/images/n8n.png"
+    },
+    {
+        title: "Gemini File Search using Google Drive (RAG)",
+        description: "Built an automated file synchronization and semantic search system that monitors a Google Drive folder, imports new files into a Gemini File Search Store, and provides an interactive, context-aware AI chat grounded in the retrieved content.",
+        tech: ["n8n", "Google Gemini", "Google Drive API", "RAG", "APIs"],
+        impact: "Automated knowledge base sync with context-grounded AI responses",
+        links: { github: "https://github.com/Lalithkis/Gemini-File-Search-using-Google-Drive" },
+        image: "/assets/images/gemini-file-search.png"
+    },
+    {
+        title: "Full-Stack AI Receptionist (StyleCut Salon)",
+        description: "Developed a full-stack AI Receptionist system combining a modern React interface with low-latency Voice AI ('Nova') to handle text chat and trigger automated outbound booking calls via Twilio and LiveKit.",
+        tech: ["React", "Node.js", "Twilio SIP", "LiveKit WebRTC", "Gemini 2.0", "MongoDB", "ElevenLabs", "Deepgram"],
+        impact: "Sub-second voice call latency for seamless salon bookings",
+        links: { github: "https://github.com/Lalithkis/full-stack-AI-Receptionist-system-for-a-salon" },
+        image: "/assets/images/stylecut-salon.png"
+    },
+    {
+        title: "RAG-Based Conversational Chatbot",
+        description: "Built a Retrieval-Augmented Generation (RAG) chatbot using Flowise and Gemini 2.0 Flash to provide context-grounded document question answering with conversational memory.",
+        tech: ["Flowise", "Google Gemini", "Gemini 2.0 Flash", "RAG", "Vector Store"],
+        impact: "Document-grounded QA with conversational memory history",
+        links: { github: "https://github.com/Lalithkis/RAG-Based-Conversational-Chatbot-with-Google-Gemini" },
+        image: "/assets/images/rag-chatbot.png"
+    },
+    {
+        title: "PG Accommodation Management System",
+        description: "Developed a comprehensive PG and Hostel Management System with separate student and admin portals to streamline room bookings, allocations, and tenant complaint tracking.",
+        tech: ["Django", "Python", "MySQL", "JavaScript", "HTML5", "CSS3"],
+        impact: "Streamlined student accommodation bookings and allocations",
+        links: { github: "https://github.com/Lalithkis/PG-Accommodation-Management-Systems" },
+        image: "/assets/images/pg-management.png"
+    },
+    {
+        title: "AI Multi-Agent Blog Automation Workflow",
+        description: "Developed an automated multi-agent content pipeline that triggers on Google Sheets updates to coordinate web research, article drafting, SEO/quality review, and Google Docs publishing.",
+        tech: ["n8n", "Groq", "SerpAPI", "Agentic AI", "LLM Orchestration", "Google Workspace"],
+        impact: "Fully automated end-to-end SEO content creation pipeline",
+        links: { github: "https://github.com/Lalithkis/AI-Multi-Agent-Blog-Automation-Workflow" },
+        image: "/assets/images/agent-blog-workflow.png"
     }
 ];
 

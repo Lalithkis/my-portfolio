@@ -4,10 +4,50 @@ import { HERO_CONTENT } from '../utils/constants';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import { FaArrowRight, FaDownload } from 'react-icons/fa';
 
+const words = [
+    "Machine Learning Engineer",
+    "AI Developer",
+    "AI Agentic Developer",
+    "Freelancer"
+];
+
 const Hero = () => {
     const { scrollY } = useScroll();
     const y = useTransform(scrollY, [0, 500], [0, 150]);
     const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
+    const [currentWordIndex, setCurrentWordIndex] = React.useState(0);
+    const [displayedText, setDisplayedText] = React.useState('');
+    const [isDeleting, setIsDeleting] = React.useState(false);
+    const [typingSpeed, setTypingSpeed] = React.useState(150);
+
+    React.useEffect(() => {
+        const activeWord = words[currentWordIndex];
+        
+        const handleTyping = () => {
+            if (!isDeleting) {
+                setDisplayedText(activeWord.substring(0, displayedText.length + 1));
+                setTypingSpeed(100);
+
+                if (displayedText === activeWord) {
+                    setTypingSpeed(2000); 
+                    setIsDeleting(true);
+                }
+            } else {
+                setDisplayedText(activeWord.substring(0, displayedText.length - 1));
+                setTypingSpeed(50);
+
+                if (displayedText === '') {
+                    setIsDeleting(false);
+                    setCurrentWordIndex((prev) => (prev + 1) % words.length);
+                    setTypingSpeed(500);
+                }
+            }
+        };
+
+        const timer = setTimeout(handleTyping, typingSpeed);
+        return () => clearTimeout(timer);
+    }, [displayedText, isDeleting, currentWordIndex, typingSpeed]);
 
     return (
         <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-light dark:bg-dark">
@@ -40,8 +80,11 @@ const Hero = () => {
 
                         </motion.h1>
 
-                        <motion.h2 variants={fadeInUp} className="text-xl sm:text-2xl text-slate-600 dark:text-slate-300 mb-6 font-medium">
-                            {HERO_CONTENT.title}
+                        <motion.h2 variants={fadeInUp} className="text-2xl sm:text-3xl lg:text-4xl text-slate-700 dark:text-slate-200 mb-8 font-semibold min-h-[50px] sm:min-h-[60px] flex items-center flex-wrap gap-2 tracking-tight">
+                            <span>I'm a</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500 font-bold typing-cursor pr-1">
+                                {displayedText}
+                            </span>
                         </motion.h2>
 
                         <motion.p variants={fadeInUp} className="text-lg text-slate-600 dark:text-slate-400 mb-10 max-w-lg leading-relaxed">
